@@ -1,0 +1,50 @@
+FROM python:3.13.3-slim-bookworm
+
+# Variables
+ARG username=dev
+ARG path=/development
+
+LABEL org.opencontainers.image.source="https://github.com/solairen/helm-chart-updater"
+LABEL org.opencontainers.image.description="Update Chart.yaml file"
+LABEL org.opencontainers.image.authors="Michał Oleszek michal@michaloleszek.com"
+LABEL org.opencontainers.image.licenses=MIT
+LABEL release=development
+
+# Environment
+ENV USER=${username}
+ENV USERNAME=${username}
+
+# Use user root
+USER root
+
+# Create folders
+RUN mkdir ${path} \
+  # Install packages
+  && apt update && apt upgrade -y && apt install wget git openssh-server gpg -y && apt clean \
+  # Install upgrade pip
+  && pip install --upgrade pip \
+  && pip install pygithub pyyaml \
+  # Add user dev
+  && useradd -ms /bin/bash ${username} \
+  && chown -R ${username}:${username} ${path} \
+  # Install starship
+  && wget -P /tmp/ https://starship.rs/install.sh \
+  && sh /tmp/install.sh -y \
+  && mkdir /home/${username}/.config \
+  && starship preset no-empty-icons -o /home/${username}/.config/starship.toml \
+  && echo '[terraform]' >> /home/${username}/.config/starship.toml \
+  && echo "format = '([(\$version | workspace: \$workspace)](\$style))'" >> /home/${username}/.config/starship.toml \
+  && echo 'eval "$(starship init bash)"' >> /home/${username}/.bashrc
+
+COPY . ${path}
+
+RUN chown -R ${username}:${username} ${path}
+
+# Use user dev
+USER dev
+
+# Workdir
+WORKDIR ${path}
+
+# Entrypoint
+ENTRYPOINT [ "bash" ]
