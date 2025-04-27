@@ -1,5 +1,5 @@
 {
-  "name": "homelab code",
+  "name": "helm chart updater",
   "build": {
     "dockerfile": "../docker/Dockerfile-dev"
   },
