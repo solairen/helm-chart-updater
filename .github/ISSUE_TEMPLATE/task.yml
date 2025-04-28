@@ -1,0 +1,30 @@
+name: Task
+description: What should be added?
+title: "[Task]:"
+labels: ["task"]
+assignees:
+  - solairen
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this task report.
+  - type: textarea
+    id: task-set
+    attributes:
+      label: What should be added?
+      placeholder: Describe how should it works
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: What component this task refer to?
+      options:
+        - Code
+        - CI/CD
+        - Devcontainer
+        - Others
+    validations:
+      required: true

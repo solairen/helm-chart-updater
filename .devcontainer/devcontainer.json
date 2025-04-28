@@ -1,0 +1,42 @@
+{
+  "name": "helm chart updater",
+  "build": {
+    "dockerfile": "../docker/Dockerfile-dev"
+  },
+  "postCreateCommand": "echo DONE!",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/development,type=bind",
+  "workspaceFolder": "/development",
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.gnupg,target=/home/dev/.gnupg,type=bind,consistency=cached"
+  ],
+  "remoteUser": "dev",
+  "containerUser": "dev",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          }
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "redhat.vscode-yaml",
+        "eamodio.gitlens",
+        "docsmsft.docs-preview",
+        "aaron-bond.better-comments",
+        "ms-azuretools.vscode-docker",
+        "ybaumes.highlight-trailing-white-spaces",
+        "Gruntfuggly.todo-tree",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  }
+}

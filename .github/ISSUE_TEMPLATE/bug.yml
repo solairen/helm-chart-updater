@@ -1,0 +1,55 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]:"
+labels: ["bug"]
+assignees:
+  - solairen
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report.
+  - type: textarea
+    id: actual-set
+    attributes:
+      label: Actual result
+      placeholder: Describe actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps-set
+    attributes:
+      label: Reproduction steps
+      placeholder: Write steps to reproduce bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-set
+    attributes:
+      label: Expected result
+      placeholder: Describe expected result.
+    validations:
+      required: true
+  - type: dropdown
+    id: method
+    attributes:
+      label: Method
+      description: What method you use to run?
+      options:
+        - Code
+        - CI/CD
+        - Devcontainer
+        - Others
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Version
+      placeholder: Set current version
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: bash

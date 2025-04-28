@@ -1,0 +1,26 @@
+name: "Chart Update"
+description: "Update the Chart.yml"
+branding:
+  icon: "book-open"
+  color: "yellow"
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
+  commit_message:
+    description: "Commit message for the update (optional)"
+    required: false
+  new_version:
+    description: "New version to set in Chart.yml"
+    required: true
+  chart_path:
+    description: "Path to the Chart.yml file"
+    required: false
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.token }}
+    - ${{ inputs.commit_message }}
+    - ${{ inputs.new_version }}
+    - ${{ inputs.chart_path }}

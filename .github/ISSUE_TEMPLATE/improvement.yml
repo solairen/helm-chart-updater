@@ -1,0 +1,42 @@
+name: Improvement
+description: What should be improved?
+title: "[Improvement]:"
+labels: ["change request"]
+assignees:
+  - solairen
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this improvement report.
+  - type: textarea
+    id: actual-set
+    attributes:
+      label: Actual result
+      placeholder: Describe actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: how-should-works-set
+    attributes:
+      label: How should works?
+      placeholder: Describe how should it works
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: What component this improvement refer to?
+      options:
+        - Code
+        - CI/CD
+        - Devcontainer
+        - Others
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Version
+      placeholder: Set current version

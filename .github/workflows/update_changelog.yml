@@ -1,0 +1,19 @@
+name: Update Changelog 🎉
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Changelog Update 📄
+      uses: bcsizmadia/changelog_update@main
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit_message: "🎉 Update changelog for new release"
