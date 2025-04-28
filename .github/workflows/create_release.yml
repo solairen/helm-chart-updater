@@ -1,0 +1,29 @@
+name: Create Release
+on:
+  milestone:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Get Current Date
+        id: get_date
+        run: |
+          date=$(date +'%Y-%m-%d')
+          echo "date=$date" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.event.milestone.title }} (${{ steps.get_date.outputs.date }})
+          tag_name: ${{ github.event.milestone.title }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GHCR_PASSWORD}}

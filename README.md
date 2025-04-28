@@ -1,8 +1,5 @@
 # Helm Chart Updater
 
-![GitHub Action](https://img.shields.io/badge/GitHub-Action-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue)
-
 A GitHub Action for automatically updating version information in Helm Chart.yaml files.
 
 ## Overview
