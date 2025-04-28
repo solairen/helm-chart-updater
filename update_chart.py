@@ -8,11 +8,11 @@ from collections import OrderedDict
 import os
 
 # Environment variables
-repo_path = os.environ.get("GITHUB_EVENT_PATH")
+repo_path = os.environ.get("GITHUB_REPOSITORY")
 token = os.environ.get("INPUT_TOKEN")
 chart_file_path = (
-    "Chart.yaml"
-    or os.environ.get("INPUT_CHART_PATH"))
+    os.environ.get("INPUT_CHART_PATH")
+    or "Chart.yaml")
 new_version = os.environ.get("INPUT_NEW_VERSION")
 commit_message = (
     os.environ.get("INPUT_COMMIT_MESSAGE")
@@ -28,8 +28,8 @@ try:
     # Get Chart.yaml content
     try:
         content = repo.get_contents(chart_file_path)
-    except:
-        print(f"Chart.yaml not found in root directory of {repo_path}")
+    except Exception as e:
+        print(f"Chart.yaml not found at path '{chart_file_path}' in repository '{repo_path}': {e}")
         sys.exit(1)
 
     # Decode and parse YAML
@@ -46,7 +46,7 @@ try:
     # Create ordered dictionary with desired field order
     ordered_chart_data = OrderedDict()
     ordered_chart_data['apiVersion'] = chart_data.get('apiVersion')
-    ordered_chart_data['name'] = chart_data.get('name') 
+    ordered_chart_data['name'] = chart_data.get('name')
     ordered_chart_data['description'] = chart_data.get('description')
     ordered_chart_data['version'] = new_version
     ordered_chart_data['appVersion'] = new_version
