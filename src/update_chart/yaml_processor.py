@@ -40,11 +40,11 @@ class YamlProcessor:
             try:
                 dependencies = yaml.safe_load(dependencies_input)
                 if not isinstance(dependencies, list):
-                    print(f"Error: Dependencies must be a list, got: {type(dependencies)}")
-                    sys.exit(1)
+                    raise ValueError(f"Dependencies must be a list, got: {type(dependencies)}")
+                    
             except yaml.YAMLError as e:
-                print(f"Error: Invalid YAML format for dependencies: {e}")
-                sys.exit(1)
+                raise yaml.YAMLError(f"Invalid YAML format for dependencies: {e}")
+                
         return dependencies
 
     @staticmethod
