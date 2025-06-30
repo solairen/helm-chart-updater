@@ -17,3 +17,18 @@
 
 
 **Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.0...1.0.1
+
+
+## 1.0.2
+
+## What's Changed
+* Bump python from 3.13.3-slim-bookworm to 3.13.4-slim-bookworm in /docker by @dependabot in https://github.com/solairen/helm-chart-updater/pull/6
+* Bump python from 3.13.3-slim-bookworm to 3.13.4-slim-bookworm by @dependabot in https://github.com/solairen/helm-chart-updater/pull/5
+* Bump python from 3.13.4-slim-bookworm to 3.13.5-slim-bookworm in /docker by @dependabot in https://github.com/solairen/helm-chart-updater/pull/8
+* Bump python from 3.13.4-slim-bookworm to 3.13.5-slim-bookworm by @dependabot in https://github.com/solairen/helm-chart-updater/pull/7
+* GH-9 [Task]: Add additional parameter by @solairen in https://github.com/solairen/helm-chart-updater/pull/10
+
+## New Contributors
+* @dependabot made their first contribution in https://github.com/solairen/helm-chart-updater/pull/6
+
+**Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.1...1.0.2
