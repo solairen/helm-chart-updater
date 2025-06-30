@@ -1,0 +1,190 @@
+# Markdownlint configuration file
+# See https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md for rule details
+
+default: true
+extends: null
+
+# MD001 - Heading levels should only increment by one level at a time
+MD001: true
+
+# MD002 - First heading should be a top level heading
+MD002:
+  level: 1
+
+# MD003 - Heading style
+MD003:
+  style: "atx"
+
+# MD004 - Unordered list style
+MD004:
+  style: "dash"
+
+# MD005 - Inconsistent indentation for list items at the same level
+MD005: true
+
+# MD006 - Consider starting bulleted lists at the beginning of the line
+MD006: true
+
+# MD007 - Unordered list indentation
+MD007:
+  indent: 2
+  start_indented: false
+
+# MD009 - Trailing spaces
+MD009:
+  br_spaces: 2
+  list_item_empty_lines: false
+  strict: false
+
+# MD010 - Hard tabs
+MD010:
+  code_blocks: true
+  spaces_per_tab: 2
+
+# MD011 - Reversed link syntax
+MD011: true
+
+# MD012 - Multiple consecutive blank lines
+MD012:
+  maximum: 2
+
+# MD013 - Line length
+MD013:
+  line_length: 500
+  heading_line_length: 120
+  code_block_line_length: 120
+  code_blocks: false
+  tables: false
+  headings: false
+
+# MD014 - Dollar signs used before commands without showing output
+MD014: false
+
+# MD018 - No space after hash on atx style heading
+MD018: true
+
+# MD019 - Multiple spaces after hash on atx style heading
+MD019: true
+
+# MD020 - No space inside hashes on closed atx style heading
+MD020: true
+
+# MD021 - Multiple spaces inside hashes on closed atx style heading
+MD021: true
+
+# MD022 - Headings should be surrounded by blank lines
+MD022:
+  lines_above: 1
+  lines_below: 1
+
+# MD023 - Headings must start at the beginning of the line
+MD023: true
+
+# MD024 - Multiple headings with the same content
+MD024:
+  siblings_only: false
+
+# MD025 - Multiple top level headings in the same document
+MD025:
+  front_matter_title: "^\\s*title\\s*[:=]"
+
+# MD026 - Trailing punctuation in heading
+MD026:
+  punctuation: ".,;:!?"
+
+# MD027 - Multiple spaces after blockquote symbol
+MD027: true
+
+# MD028 - Blank line inside blockquote
+MD028: true
+
+# MD029 - Ordered list item prefix
+MD029:
+  style: "ordered"
+
+# MD030 - Spaces after list markers
+MD030:
+  ul_single: 1
+  ol_single: 1
+  ul_multi: 1
+  ol_multi: 1
+
+# MD031 - Fenced code blocks should be surrounded by blank lines
+MD031:
+  list_items: true
+
+# MD032 - Lists should be surrounded by blank lines
+MD032: true
+
+# MD033 - Inline HTML
+MD033:
+  allowed_elements: ["br", "sub", "sup", "kbd", "img", "a", "pre"]
+
+# MD034 - Bare URL used
+MD034: true
+
+# MD035 - Horizontal rule style
+MD035:
+  style: "---"
+
+# MD036 - Emphasis used instead of a heading
+MD036:
+  punctuation: ".,;:!?。，；：！？"
+
+# MD037 - Spaces inside emphasis markers
+MD037: true
+
+# MD038 - Spaces inside code span elements
+MD038: true
+
+# MD039 - Spaces inside link text
+MD039: true
+
+# MD040 - Fenced code blocks should have a language specified
+MD040: true
+
+# MD041 - First line in file should be a top level heading
+MD041:
+  front_matter_title: "^\\s*title\\s*[:=]"
+
+# MD042 - No empty links
+MD042: true
+
+# MD043 - Required heading structure
+MD043: false
+
+# MD044 - Proper names should have the correct capitalization
+MD044:
+  names: ["JavaScript", "TypeScript", "GitHub", "Kubernetes", "Docker", "Terraform", "Ansible", "terraform", "ansible" , "xenorchestra", "kubernetes"]
+  code_blocks: false
+
+# MD045 - Images should have alternate text (alt text)
+MD045: true
+
+# MD046 - Code block style
+MD046:
+  style: "fenced"
+
+# MD047 - Files should end with a single newline character
+MD047: true
+
+# MD048 - Code fence style
+MD048:
+  style: "backtick"
+
+# MD049 - Emphasis style should be consistent
+MD049:
+  style: "asterisk"
+
+# MD050 - Strong style should be consistent
+MD050:
+  style: "asterisk"
+
+# MD051 - Link fragments should be valid
+MD051: true
+
+# MD052 - Reference links and images should use a label that is defined
+MD052: true
+
+# MD053 - Link and image reference definitions should be needed
+MD053: true

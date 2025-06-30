@@ -37,6 +37,7 @@ Add the following step to your GitHub workflow:
 | `new_version` | The new version to set in Chart.yaml | Yes | N/A |
 | `chart_path` | Path to the Chart.yaml file | No | `Chart.yaml` |
 | `commit_message` | Custom commit message | No | `Update Chart.yaml version to [new_version]` |
+| `dependencies`   | Add dependencies ot Chart.yaml | No | N/A |
 
 ## Example Workflow
 

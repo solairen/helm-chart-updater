@@ -16,6 +16,10 @@ inputs:
   chart_path:
     description: "Path to the Chart.yml file"
     required: false
+  dependencies:
+    description: "List of dependencies as JSON string (optional)"
+    required: false
+    default: ""
 runs:
   using: "docker"
   image: "Dockerfile"

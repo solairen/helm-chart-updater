@@ -20,15 +20,23 @@ USER root
 # Create folders
 RUN mkdir ${path} \
   # Install packages
-  && apt update && apt upgrade -y && apt install wget git openssh-server gpg -y && apt clean \
+  && apt update && apt upgrade -y && apt install curl=7.88.1-10+deb12u12 git=1:2.39.5-0+deb12u2 openssh-server=1:9.2p1-2+deb12u6 gpg=2.2.40-1.1 locales=2.36-9+deb12u10 -y && apt clean \
   # Install upgrade pip
   && pip install --upgrade pip \
-  && pip install pygithub pyyaml \
+  && pip install pygithub==2.6.1 pyyaml==6.0.2 pre-commit==4.2.0 \
+  # Install hadolint
+  && curl -L https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint \
+  && chmod +x /usr/local/bin/hadolint \
+  # Configure locales
+  && echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
+  && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+  && echo "LANG=en_US.UTF-8" > /etc/locale.conf \
+  && locale-gen en_US.UTF-8 \
   # Add user dev
   && useradd -ms /bin/bash ${username} \
   && chown -R ${username}:${username} ${path} \
   # Install starship
-  && wget -P /tmp/ https://starship.rs/install.sh \
+  && curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh \
   && sh /tmp/install.sh -y \
   && mkdir /home/${username}/.config \
   && starship preset no-empty-icons -o /home/${username}/.config/starship.toml \
