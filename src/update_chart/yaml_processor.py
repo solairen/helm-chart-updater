@@ -25,7 +25,7 @@ def represent_ordereddict(dumper, data):
 
 
 # Register the custom representers
-yaml.add_representer(dict, represent_ordereddict)
+yaml.add_representer(OrderedDict, represent_ordereddict)
 yaml.add_representer(list, represent_list)
 
 
