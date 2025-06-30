@@ -1,0 +1,20 @@
+name: 🤖 Add PR from Dependabot to project
+
+on:
+  pull_request:
+    types:
+      - labeled
+
+
+jobs:
+  add-to-project:
+    name: ➕ Add PR from Dependabot to project
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: 🛠️ Add PR from Dependabot to project
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: ${{ secrets.PROJECT_URL }}
+          github-token: ${{ secrets.GHCR_PASSWORD }}
+          labeled: dependencies
