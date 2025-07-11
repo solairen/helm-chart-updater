@@ -32,3 +32,11 @@
 * @dependabot made their first contribution in https://github.com/solairen/helm-chart-updater/pull/6
 
 **Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.1...1.0.2
+
+## 1.0.3
+
+## What's Changed
+* GH-11 [Bug]: Missing src folder in Docker image by @solairen in https://github.com/solairen/helm-chart-updater/pull/12
+
+
+**Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.2...1.0.3
