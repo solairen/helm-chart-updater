@@ -8,6 +8,7 @@ LABEL release=production
 
 RUN pip install PyYAML PyGithub
 
+COPY src/ /action/src/
 COPY update_chart.py /action/update_chart.py
 
 ENTRYPOINT ["python", "/action/update_chart.py"]

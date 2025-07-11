@@ -4,6 +4,7 @@ YAML processing utilities for Chart.yaml files.
 
 import yaml
 from typing import Dict, Any, List
+from collections import OrderedDict
 import sys
 
 
