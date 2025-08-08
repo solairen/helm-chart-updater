@@ -40,3 +40,12 @@
 
 
 **Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.2...1.0.3
+
+## 1.0.4
+
+## What's Changed
+* Bump python from 3.13.5-slim-bookworm to 3.13.6-slim-bookworm in /docker by @dependabot[bot] in https://github.com/solairen/helm-chart-updater/pull/14
+* Bump python from 3.13.5-slim-bookworm to 3.13.6-slim-bookworm by @dependabot[bot] in https://github.com/solairen/helm-chart-updater/pull/13
+
+
+**Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.3...1.0.4
