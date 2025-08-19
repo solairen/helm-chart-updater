@@ -1,4 +1,4 @@
-FROM python:3.13.6-slim-bookworm
+FROM python:3.13.7-slim-bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/solairen/helm-chart-updater"
 LABEL org.opencontainers.image.description="Update Chart.yaml file"
