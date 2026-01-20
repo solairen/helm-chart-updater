@@ -82,3 +82,12 @@
 
 
 **Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.6...1.0.7
+
+
+## 1.0.8
+
+## What's Changed
+* GH-27 [Task]: Change docker image to Python by @solairen in https://github.com/solairen/helm-chart-updater/pull/28
+
+
+**Full Changelog**: https://github.com/solairen/helm-chart-updater/compare/1.0.7...1.0.8
