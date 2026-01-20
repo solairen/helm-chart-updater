@@ -2,10 +2,11 @@
 YAML processing utilities for Chart.yaml files.
 """
 
-import yaml
-from typing import Dict, Any, List
-from collections import OrderedDict
 import sys
+from collections import OrderedDict
+from typing import Any, Dict, List
+
+import yaml
 
 
 class IndentedDumper(yaml.SafeDumper):
@@ -41,11 +42,13 @@ class YamlProcessor:
             try:
                 dependencies = yaml.safe_load(dependencies_input)
                 if not isinstance(dependencies, list):
-                    raise ValueError(f"Dependencies must be a list, got: {type(dependencies)}")
-                    
+                    raise ValueError(
+                        f"Dependencies must be a list, got: {type(dependencies)}"
+                    )
+
             except yaml.YAMLError as e:
                 raise yaml.YAMLError(f"Invalid YAML format for dependencies: {e}")
-                
+
         return dependencies
 
     @staticmethod
@@ -59,25 +62,25 @@ class YamlProcessor:
 
     @staticmethod
     def create_ordered_chart_data(
-        chart_data: Dict[str, Any],
-        new_version: str,
-        dependencies: List[Dict[str, Any]]
+        chart_data: Dict[str, Any], new_version: str, dependencies: List[Dict[str, Any]]
     ) -> Dict[str, Any]:
         """Create ordered chart data with proper field ordering."""
         ordered_chart_data = {}
 
         # Add fields in the desired order
-        field_order = ['apiVersion', 'name', 'description', 'type']
+        field_order = ["apiVersion", "name", "description", "type"]
         for field in field_order:
             if field in chart_data:
                 ordered_chart_data[field] = chart_data[field]
 
         # Set version fields
-        ordered_chart_data['version'] = new_version
-        ordered_chart_data['appVersion'] = new_version
+        ordered_chart_data["version"] = new_version
+        ordered_chart_data["appVersion"] = new_version
 
         # Set dependencies
-        ordered_chart_data['dependencies'] = dependencies if dependencies else chart_data.get('dependencies', [])
+        ordered_chart_data["dependencies"] = (
+            dependencies if dependencies else chart_data.get("dependencies", [])
+        )
 
         return ordered_chart_data
 
@@ -90,5 +93,5 @@ class YamlProcessor:
             default_flow_style=False,
             allow_unicode=True,
             sort_keys=False,
-            indent=2
+            indent=2,
         )

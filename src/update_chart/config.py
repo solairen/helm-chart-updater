@@ -24,23 +24,27 @@ class Config:
     def validate(self) -> None:
         """Validate required environment variables."""
         required_vars = {
-            'GITHUB_REPOSITORY': self.repo_path,
-            'INPUT_TOKEN': self.token,
-            'INPUT_NEW_VERSION': self.new_version
+            "GITHUB_REPOSITORY": self.repo_path,
+            "INPUT_TOKEN": self.token,
+            "INPUT_NEW_VERSION": self.new_version,
         }
 
-        missing_vars = [var_name for var_name, value in required_vars.items() if not value]
+        missing_vars = [
+            var_name for var_name, value in required_vars.items() if not value
+        ]
 
         if missing_vars:
-            raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
+            raise ValueError(
+                f"Missing required environment variables: {', '.join(missing_vars)}"
+            )
 
     def to_dict(self) -> Dict[str, Optional[str]]:
         """Convert config to dictionary format."""
         return {
-            'repo_path': self.repo_path,
-            'token': self.token,
-            'chart_file_path': self.chart_file_path,
-            'new_version': self.new_version,
-            'commit_message': self.commit_message,
-            'dependencies_input': self.dependencies_input
+            "repo_path": self.repo_path,
+            "token": self.token,
+            "chart_file_path": self.chart_file_path,
+            "new_version": self.new_version,
+            "commit_message": self.commit_message,
+            "dependencies_input": self.dependencies_input,
         }
