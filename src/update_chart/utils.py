@@ -2,7 +2,7 @@
 Utility functions for Chart.yaml operations.
 """
 
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 class ChartUtils:
@@ -25,4 +25,7 @@ class ChartUtils:
     @staticmethod
     def print_success_message(new_version: str) -> None:
         """Print success message after update."""
-        print(f"\nSuccessfully updated Chart.yaml in repository with version {new_version}")
+        print(
+            f"\nSuccessfully updated Chart.yaml in repository "
+            f"with version {new_version}"
+        )

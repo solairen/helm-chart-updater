@@ -32,6 +32,7 @@ body:
         - Code
         - CI/CD
         - Devcontainer
+        - Docker
         - Others
     validations:
       required: true

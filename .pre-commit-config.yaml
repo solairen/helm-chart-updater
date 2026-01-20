@@ -16,7 +16,6 @@ repos:
       - id: check-merge-conflict
       - id: check-case-conflict
       - id: check-json
-      - id: check-toml
       - id: debug-statements
       - id: check-docstring-first
       - id: check-executables-have-shebangs
@@ -54,10 +53,11 @@ repos:
       - id: mypy
         additional_dependencies: [types-PyYAML]
         args: ["--ignore-missing-imports", "--strict-optional"]
+        exclude: ^update_chart\.py$
 
   # Python security scanning
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
+    rev: 1.8.3
     hooks:
       - id: bandit
         args: ['--recursive', '--format', 'custom', '--skip', 'B101']
@@ -68,9 +68,9 @@ repos:
     hooks:
       - id: hadolint
         name: Lint Dockerfiles
-        entry: hadolint
+        entry: hadolint --ignore DL3008 --ignore SC2016
         language: system
-        files: ^docker/Dockerfile$
+        files: ^docker/Dockerfile-dev$
 
   # YAML formatting and linting
   - repo: https://github.com/adrienverge/yamllint

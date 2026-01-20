@@ -6,9 +6,9 @@ import sys
 from typing import NoReturn
 
 from .config import Config
-from .yaml_processor import YamlProcessor
 from .github_repository import GitHubRepository
 from .utils import ChartUtils
+from .yaml_processor import YamlProcessor
 
 
 def main() -> None:
@@ -32,9 +32,7 @@ def main() -> None:
 
         # Create ordered chart data
         ordered_chart_data = YamlProcessor.create_ordered_chart_data(
-            chart_data,
-            config.new_version,
-            dependencies
+            chart_data, config.new_version, dependencies
         )
 
         # Generate updated YAML content
@@ -45,9 +43,7 @@ def main() -> None:
 
         # Update file in repository
         github_repo.update_chart_file(
-            content,
-            config.get_commit_message(),
-            updated_content
+            content, config.get_commit_message(), updated_content
         )
 
         # Print success message
