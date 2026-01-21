@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 LABEL org.opencontainers.image.source="https://github.com/solairen/helm-chart-updater"
 LABEL org.opencontainers.image.description="Update Chart.yaml file"
